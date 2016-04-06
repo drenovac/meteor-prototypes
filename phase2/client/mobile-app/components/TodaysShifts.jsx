@@ -45,7 +45,7 @@ class TodaysShifts extends React.Component {
   renderEmpty() {
     if (this.props.todaysShifts.length == 0) {
       return (
-        <div className="none">None</div>
+        <div className="none">No Shifts</div>
       )
     }
   }

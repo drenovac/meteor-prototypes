@@ -54,12 +54,12 @@ class DayLayout extends React.Component {
             <a className="right" onClick={this.resetDay.bind(this)} href="#"><i className="invisible fa fa-chevron-left"/></a>
           </div>
           <div className="content">
-            <ReactCSSTransitionGroup transitionName={"shift-" + this.props.direction} transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+            <ReactCSSTransitionGroup transitionName={"shift-" + this.props.direction} transitionEnterTimeout={300} transitionLeaveTimeout={300}>
               <TodaysShift ref="TodaysShift" timesheets={this.props.timesheets} day={this.props.day} key={this.props.day} success={this.success.bind(this)} loading={this.loading.bind(this)}/>
             </ReactCSSTransitionGroup>
           </div>
           <div className="footer">
-            <button onClick={this.logout.bind(this)} className="btn">Logout of RosterMe</button>
+            <button onClick={this.logout.bind(this)} className="btn">Logout</button>
           </div>
         </div>
       </div>
