@@ -59,7 +59,8 @@ class DayLayout extends React.Component {
             </ReactCSSTransitionGroup>
           </div>
           <div className="footer">
-            <button onClick={this.logout.bind(this)} className="btn">Logout</button>
+            <button onClick={this.refresh.bind(this)} className="btn"><i className="fa fa-refresh"> </i> &nbsp;Refresh</button>
+            <button onClick={this.logout.bind(this)} className="btn"><i className="fa fa-sign-out"> </i> &nbsp;Logout</button>
           </div>
         </div>
       </div>
@@ -81,7 +82,10 @@ class DayLayout extends React.Component {
       this.setState({SuccessIndicatorVisible: visible})
     }
   }
-
+  refresh() {
+    this.resetDay()
+    this.props.refresh()
+  }
   logout() {
     this.props.logOut()
   }

@@ -13,6 +13,10 @@ class WeekLayout extends React.Component {
     super(props)
     this.state = {LoadingIndicatorVisible: false, SuccessIndicatorVisible: false, selectedDay: null}
   }
+
+  componentWillReceiveProps(props) {
+    this.setState({LoadingIndicatorVisible: props.loading})
+  }
   
   selectDay(day) {
     this.setState({selectedDay: day})
@@ -21,7 +25,7 @@ class WeekLayout extends React.Component {
   render() {
     let component = null
     if (this.state.selectedDay) {
-      component = (<DayLayout key="day-layout" selectDay={this.selectDay.bind(this)} day={this.state.selectedDay} timesheets={this.props.timesheets} logOut={this.props.logOut} sessionID={this.props.sessionID} loggedOut={this.props.loggedOut}/>)
+      component = (<DayLayout key="day-layout" refresh={this.refresh.bind(this)} selectDay={this.selectDay.bind(this)} day={this.state.selectedDay} timesheets={this.props.timesheets} logOut={this.props.logOut} sessionID={this.props.sessionID} loggedOut={this.props.loggedOut}/>)
     } else {
       component = null
     }
@@ -54,7 +58,8 @@ class WeekLayout extends React.Component {
               </ReactCSSTransitionGroup>
             </div>
             <div className="footer">
-              <button onClick={this.logout.bind(this)} className="btn">Logout</button>
+              <button onClick={this.refresh.bind(this)} className="btn"><i className="fa fa-refresh"> </i> &nbsp;Refresh</button>
+              <button onClick={this.logout.bind(this)} className="btn"><i className="fa fa-sign-out"> </i> &nbsp;Logout</button>
             </div>
           </div>
         </Hammer>
@@ -94,7 +99,10 @@ class WeekLayout extends React.Component {
       this.setState({SuccessIndicatorVisible: visible})
     }
   }
-  
+  refresh(){
+    this.loading(true)
+    this.props.refresh()
+  }
   logout() {
     this.props.logOut()
   }
