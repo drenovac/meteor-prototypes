@@ -1,5 +1,8 @@
 .shifts {
   height: calc(100vh - 70px - 50px);
+  &.ios{
+    height: calc(100vh - 70px - 40px);
+  }
   position: relative;
   overflow: hidden;
   //& > * {

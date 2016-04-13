@@ -51,8 +51,8 @@ const refresh = (event) => {
   if (event && event.preventDefault) {
     event.preventDefault()
   }
-  let date = _week.get()
-  _week.set(date)
+
+  _week.set(getMonday(new Date))
   timesheets = null
 }
 

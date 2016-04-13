@@ -33,8 +33,8 @@ class WeekLayout extends React.Component {
     return (
 
 
-      <div>
-        <ReactCSSTransitionGroup className="floyd" transitionName="day" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+      <div >
+        <ReactCSSTransitionGroup  transitionName="day" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
           {component}
         </ReactCSSTransitionGroup>
         <LoadingIndicator ref="LoadingIndicator" indicatorVisible={this.state.LoadingIndicatorVisible}/>
@@ -93,7 +93,7 @@ class WeekLayout extends React.Component {
       this.setState({LoadingIndicatorVisible: visible})
     }
   }
-  
+
   success(visible) {
     if (this.state.SuccessIndicatorVisible !== visible) {
       this.setState({SuccessIndicatorVisible: visible})

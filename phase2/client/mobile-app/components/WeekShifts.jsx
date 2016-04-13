@@ -47,7 +47,7 @@ class WeekShifts extends React.Component {
             return (
               <div onClick={this.selectDay.bind(this, day)} className="shift-card-wrapper" key={day}>
                 <div className="shift-card shift-day">
-                  <h1>{moment(day).format("dddd Do MMMM YYYY")}</h1>
+                  <h1>{moment(new Date(day)).format("dddd Do MMMM YYYY")}</h1>
                   {this.renderEmptyDay(groups[day])}
                   {groups[day].map((shift) => {
                     return (
@@ -71,7 +71,6 @@ class WeekShifts extends React.Component {
     </div>)
 
   }
-
   getCustomerColor(customer) {
     return Customers.findOne({id: customer}).color
   }
