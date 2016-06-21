@@ -30,13 +30,18 @@ const logOut = () => {
 
 const composition = (props, onData) => {
 
-  var loginState = reactiveLoginDetails.get()
-  var logingInState = logginIn.get()
+  let loginState = reactiveLoginDetails.get()
+  let logingInState = logginIn.get()
+  Meteor.subscribe("Companies")
+
+
+
   if (loginState.loggedIn === true) {
     if (loginState.user.role !== 'site'){
      FlowRouter.go('/')
     }else {
-      onData(null, {logOut, fullName: `${loginState.user.firstName}`})
+      let company = Companies.findOne({code: loginState.user.company})
+      onData(null, {logOut,company: company, fullName: `${loginState.user.firstName}`})
     }
   } else {
     if (loginState.sessionID == null) {

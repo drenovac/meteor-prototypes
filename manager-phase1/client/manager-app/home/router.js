@@ -8,6 +8,6 @@ import SideBar from './components/SideBar'
 FlowRouter.route('/manager', {
   name: "manager-home",
   action() {
-    mount(Layout, {content: <Home />, sidebar: <SideBar />})
+    mount(Layout, {content: <Home />})
   }
 })

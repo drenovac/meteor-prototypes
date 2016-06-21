@@ -47,5 +47,24 @@ Meteor.methods({
     //TODO MODEL VALIDATION
     entry.createdAt = new Date()
     TimeEntries.insert(entry)
+  },
+  "saveCompany": (code, name) => {
+    check(code, String)
+    check(name, String)
+
+    Companies.insert({code: code, name: name})
+
+  },
+  "getTimesheets": ({sessionID, customers}) => {
+    let cookie = [sessionID]
+    return new Promise((resolve, reject) => {
+      HTTP.get(apiUri + `/site/${customers}/timecards`, {headers: {cookie: ['set-cookies', cookie]}}, (e, d) => {
+        if (e) {
+          reject(e)
+        } else {
+          resolve({statusCode: d.statusCode, content: JSON.parse(d.content)})
+        }
+      })
+    })
   }
 })

@@ -10,3 +10,6 @@ Meteor.publish("AdminEntries", function() {
   }
 })
 
+Meteor.publish("Companies", () => {
+  return Companies.find()
+})

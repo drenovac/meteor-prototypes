@@ -44,3 +44,5 @@ TimeEntries.attachSchema(TimeEntry)
 
 
 Customers = new Mongo.Collection(null)
+
+Companies = new Mongo.Collection("companies")
