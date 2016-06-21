@@ -1,0 +1,17 @@
+.roster-layout.manager-app{
+  .layout {
+    display: flex;
+    height: 100vh;
+    .main-block {
+      flex: 1;
+    }
+
+  }
+  .header{
+    a.right{
+      i {
+        font-size: 2em;
+      }
+    }
+  }
+}
