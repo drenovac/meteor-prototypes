@@ -26,6 +26,7 @@
     flex-direction: column;
     -ms-flex-align: stretch;
     align-items: stretch;
+
   }
   .rbc-calendar *,
   .rbc-calendar *:before,
@@ -78,9 +79,9 @@
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    margin: -30px;
+    margin: -15px;
     padding: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-size: 16px;
     background-color: $accent-color;
   }
