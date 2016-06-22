@@ -41,8 +41,10 @@ const composition = (props, onData) => {
      FlowRouter.go('/')
     }else {
       let company = Companies.findOne({code: loginState.user.company})
-      if (!company) {
+      if (company) {
         onData(null, {logOut, companyName: company.name, fullName: `${loginState.user.firstName}`})
+      }else{
+        onData(null, {logOut, companyName: loginState.user.company, fullName: `${loginState.user.firstName}`})
       }
     }
   } else {
