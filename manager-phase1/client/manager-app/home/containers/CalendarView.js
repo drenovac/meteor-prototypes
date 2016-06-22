@@ -25,6 +25,8 @@ const composition = (props, onData) => {
       timesheets = data.content.timecards
       console.log(timesheets)
       onData(null, {events: []})
+    }, (e) => {
+      onData(null, {events: []})
     })
   }
 
