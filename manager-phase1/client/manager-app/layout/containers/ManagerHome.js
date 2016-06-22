@@ -29,7 +29,9 @@ const logOut = () => {
 }
 
 const composition = (props, onData) => {
-
+  var metaInfo = {name: "viewport", content: "user-scalable=no, width=device-width, maximum-scale=1, initial-scale=1, minimum-scale=1"};
+  DocHead.addMeta(metaInfo);
+  
   let loginState = reactiveLoginDetails.get()
   let logingInState = logginIn.get()
   Meteor.subscribe("Companies")
