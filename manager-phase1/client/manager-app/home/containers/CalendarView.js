@@ -19,17 +19,18 @@ const getTimesheets = () => {
   })
 }
 
-let timesheets = null
+let content = null
 const composition = (props, onData) => {
-  if (timesheets == null){
+  if (content == null){
+    content = {}
     getTimesheets().then((data) => {
-
-      timesheets = data.content.timecards
-      console.log(data)
-      onData(null, {events: generateEvents(data.content)})
+      content = data.content
+      onData(null, {events: generateEvents(content)})
     }, (e) => {
       onData(null, {events: []})
     })
+  }else{
+    onData(null, {events: generateEvents(content)})
   }
 
 }

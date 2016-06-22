@@ -4,7 +4,7 @@ export default (props) => {
   return (
     <div className="roster-layout manager-app">
       <div className="header">
-        <a className="left" onClick={props.logOut} href="#"><i className="fa fa-cog"/></a>
+        <a className="left" onClick={props.toggleSettings.bind(this)} href="#"><i className="fa fa-cog"/></a>
         <div className="center">
           <h1>{props.companyName}</h1>
           <span>Logged in as {props.fullName}</span>

@@ -20,7 +20,7 @@ Meteor.methods({
         if (e) {
           reject(e)
         } else {
-          resolve({statusCode: d.statusCode, user: _.omit(JSON.parse(d.content).user, ['password'] )})
+          resolve({statusCode: d.statusCode, user: _.omit(JSON.parse(d.content).user, ['password'])})
         }
       })
     })
@@ -34,7 +34,7 @@ Meteor.methods({
           if (d.content.startsWith("404")) {
             resolve({statusCode: 404})
           } else {
-            resolve({statusCode: d.statusCode, user: _.omit(JSON.parse(d.content).user, ['password'] ), sessionID: d.headers['set-cookie'][0]})
+            resolve({statusCode: d.statusCode, user: _.omit(JSON.parse(d.content).user, ['password']), sessionID: d.headers['set-cookie'][0]})
           }
 
         }
@@ -51,9 +51,8 @@ Meteor.methods({
   "saveCompany": (code, name) => {
     check(code, String)
     check(name, String)
-
+    Companies.remove({code: code})
     Companies.insert({code: code, name: name})
-
   },
   "getTimesheets": ({sessionID, customers}) => {
     let cookie = [sessionID]

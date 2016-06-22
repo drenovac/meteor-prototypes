@@ -28,6 +28,11 @@ const logOut = () => {
   localStorage.setItem("sessionId", null)
 }
 
+const toggleSettings = () => {
+  let sidebar = this.refs.sidebar
+  $(sidebar).toggle('slide')
+}
+
 const composition = (props, onData) => {
   var metaInfo = {name: "viewport", content: "user-scalable=no, width=device-width, maximum-scale=1, initial-scale=1, minimum-scale=1"};
   DocHead.addMeta(metaInfo);
@@ -44,9 +49,9 @@ const composition = (props, onData) => {
     }else {
       let company = Companies.findOne({code: loginState.user.company})
       if (company) {
-        onData(null, {logOut, companyName: company.name, fullName: `${loginState.user.firstName}`})
+        onData(null, {logOut,toggleSettings, companyName: company.name, fullName: `${loginState.user.firstName}`})
       }else{
-        onData(null, {logOut, companyName: loginState.user.company, fullName: `${loginState.user.firstName}`})
+        onData(null, {logOut,toggleSettings, companyName: loginState.user.company, fullName: `${loginState.user.firstName}`})
       }
     }
   } else {

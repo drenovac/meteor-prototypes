@@ -6,8 +6,14 @@ BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
 )
 
-
-const Event = ({ event }) => {
+const EventLight = ({event}) => {
+  return (
+    <span>
+      <p>{event.title}</p>
+    </span>
+  )
+}
+const Event = ({event}) => {
   return (
     <span>
       <p>{event.title}</p>
@@ -17,11 +23,12 @@ const Event = ({ event }) => {
     </span>
   )
 }
-const eventProps = (a,b,c,d) => {
+const eventProps = (a, b, c, d) => {
+
   return {className: a.customer}
 }
 
-const allDay = (a,b,c,d) => {
+const allDay = (a, b, c, d) => {
   return false
 }
 export default (props) => {
@@ -32,7 +39,10 @@ export default (props) => {
         events={props.events}
         defaultDate={new Date()}
         components={{
-            event: Event
+            event: Event,
+            month: {
+             event: EventLight
+            }
           }}
         eventPropGetter={eventProps}
         messages={{allDay: 'Sleep Over'}}
