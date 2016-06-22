@@ -28,8 +28,7 @@ const logOut = () => {
   localStorage.setItem("sessionId", null)
 }
 
-const toggleSettings = () => {
-  let sidebar = this.refs.sidebar
+const toggleSidebar = (sidebar) => {
   $(sidebar).toggle('slide')
 }
 
@@ -49,9 +48,9 @@ const composition = (props, onData) => {
     }else {
       let company = Companies.findOne({code: loginState.user.company})
       if (company) {
-        onData(null, {logOut,toggleSettings, companyName: company.name, fullName: `${loginState.user.firstName}`})
+        onData(null, {logOut,toggleSidebar, companyName: company.name, fullName: `${loginState.user.firstName}`})
       }else{
-        onData(null, {logOut,toggleSettings, companyName: loginState.user.company, fullName: `${loginState.user.firstName}`})
+        onData(null, {logOut,toggleSidebar, companyName: loginState.user.company, fullName: `${loginState.user.firstName}`})
       }
     }
   } else {

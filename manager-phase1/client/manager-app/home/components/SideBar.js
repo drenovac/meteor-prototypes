@@ -2,6 +2,9 @@ import React from 'react'
 
 export default () => {
   return (
-    <div>HELLO SIDEBAR</div>
+    <div>
+      <h1>Settings</h1>
+      
+    </div>
   )
 }
