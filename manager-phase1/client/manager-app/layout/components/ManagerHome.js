@@ -6,7 +6,7 @@ export default (props) => {
       <div className="header">
         <a className="left" onClick={props.logOut} href="#"><i className="fa fa-cog"/></a>
         <div className="center">
-          <h1>{props.company.name}</h1>
+          <h1>{props.companyName}</h1>
           <span>Logged in as {props.fullName}</span>
         </div>
         <a className="right" onClick={props.logOut} href="#"><i className="fa fa-sign-out"/></a>
