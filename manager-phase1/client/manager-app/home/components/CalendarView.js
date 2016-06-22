@@ -7,14 +7,35 @@ BigCalendar.setLocalizer(
 )
 
 
+const Event = ({ event }) => {
+  return (
+    <span>
+      <p>{event.title}</p>
+      <p>{event.customer}</p>
+      {event.startTime} -
+      {event.finishTime}
+    </span>
+  )
+}
+const eventProps = (a,b,c,d) => {
+  return {className: a.customer}
+}
 
+const allDay = (a,b,c,d) => {
+  return false
+}
 export default (props) => {
   return (
     <div className="box calendar">
       <BigCalendar
         views={['month', 'week', 'day']}
         events={props.events}
-        defaultDate={new Date(2015, 3, 1)}
+        defaultDate={new Date()}
+        components={{
+            event: Event
+          }}
+        eventPropGetter={eventProps}
+        messages={{allDay: 'Sleep Over'}}
       />
     </div>
 

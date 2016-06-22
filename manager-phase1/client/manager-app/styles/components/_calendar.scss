@@ -64,9 +64,11 @@
     padding: 0 3px;
     text-align: center;
     vertical-align: middle;
-    font-weight: bold;
     font-size: 90%;
     min-height: 0;
+    font-weight: 200;
+    text-transform: uppercase;
+    padding: 15px;
   }
   .rbc-header > a,
   .rbc-header > a:active,
@@ -180,9 +182,16 @@
   .rbc-event {
     cursor: pointer;
     padding: 2px 5px;
+    margin:2px;
+    margin-bottom: 0px;
     background-color: #3174ad;
-    border-radius: 5px;
+    //border-radius: 5px;
     color: #fff;
+    font-weight: 200;
+    p{
+      margin: 0px;
+      padding:0px;
+    }
   }
   .rbc-event.rbc-selected {
     background-color: #265985;
@@ -394,6 +403,7 @@
   }
   .rbc-label {
     padding: 0 5px;
+    font-weight: 200;
   }
   .rbc-day-slot {
     position: relative;
@@ -537,7 +547,7 @@
     width: 100%;
   }
 
-  .rbc-time-header.rbc-overflowing > .rbc-row:nth-of-type(2) {
-    display: none;
-  }
+  //.rbc-time-header.rbc-overflowing > .rbc-row:nth-of-type(2) {
+  //  display: none;
+  //}
 }
