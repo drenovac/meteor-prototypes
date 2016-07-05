@@ -21,13 +21,13 @@ class ShiftView extends React.Component {
           <thead>
           <tr>
             <th colSpan="2">Employee</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thur</th>
-            <th>Fri</th>
-            <th>Sat</th>
-            <th>Sun</th>
+            <th>{moment(this.props.currentWeek).format("dddd Do")}</th>
+            <th>{moment(this.props.currentWeek).add(1, 'd').format("dddd Do")}</th>
+            <th>{moment(this.props.currentWeek).add(2, 'd').format("dddd Do")}</th>
+            <th>{moment(this.props.currentWeek).add(3, 'd').format("dddd Do")}</th>
+            <th>{moment(this.props.currentWeek).add(4, 'd').format("dddd Do")}</th>
+            <th>{moment(this.props.currentWeek).add(5, 'd').format("dddd Do")}</th>
+            <th>{moment(this.props.currentWeek).add(6, 'd').format("dddd Do")}</th>
           </tr>
           </thead>
           <tbody>
