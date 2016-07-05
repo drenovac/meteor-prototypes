@@ -10,10 +10,10 @@ class ShiftView extends React.Component {
 
   tableView() {
     if (this.props.reloading) {
-      return (<p>Loading</p>)
+      return (<div className="loading"><i className="fa fa-circle-o-notch fa-spin"> </i></div>)
     }
     if (_.keys(this.props.events).length == 0) {
-      return (<p>None</p>)
+      return (<div className="empty">No Data</div>)
     }
     return (
       <div>

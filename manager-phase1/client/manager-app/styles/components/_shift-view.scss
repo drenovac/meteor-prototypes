@@ -18,6 +18,13 @@
         cursor: pointer;
       }
     }
+    .empty, .loading{
+      margin-top: 150px;
+      text-align: center;
+      font-size: 4em;
+      color:#aaa;
+      font-weight: 100;
+    }
     table{
       width:100%;
       th{
