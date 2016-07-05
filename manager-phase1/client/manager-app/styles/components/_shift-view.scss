@@ -9,6 +9,14 @@
       font-size: 2em;
       padding: 15px;
       background-color: $accent-color;
+      .left{
+        float: left;
+        cursor: pointer;
+      }
+      .right{
+        float: right;
+        cursor: pointer;
+      }
     }
     table{
       width:100%;
@@ -40,7 +48,8 @@
 
         }
         &.indent{
-          border-color: $accent-color
+          border-color: $accent-color;
+          width:1px;
         }
         .event{
           background-color: #3174ad;

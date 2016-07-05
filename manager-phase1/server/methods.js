@@ -1,5 +1,5 @@
 const apiUri = 'https://nvzn-dev.scalingo.io/api/v1.1'
-
+// const apiUri = 'http://0.0.0.0:9292/api/v1.1'
 Meteor.methods({
   "getRosterInformation": ({sessionID}) => {
     let cookie = [sessionID]
@@ -54,10 +54,10 @@ Meteor.methods({
     Companies.remove({code: code})
     Companies.insert({code: code, name: name})
   },
-  "getTimesheets": ({sessionID, customers}) => {
+  "getTimesheets": ({sessionID, customers, week}) => {
     let cookie = [sessionID]
     return new Promise((resolve, reject) => {
-      HTTP.get(apiUri + `/site/${customers}/timecards`, {headers: {cookie: ['set-cookies', cookie]}}, (e, d) => {
+      HTTP.get(apiUri + `/site/${customers}/timecards?week=${week}`, {headers: {cookie: ['set-cookies', cookie]}}, (e, d) => {
         if (e) {
           reject(e)
         } else {
